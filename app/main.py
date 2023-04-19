@@ -1,8 +1,6 @@
 from fastapi import FastAPI
+from app.routes.routes import router
 
 app = FastAPI()
-
-@app.get("/")
-def read_root():
-    return "Bienvenido a UF-API"
+app.include_router(router)
 

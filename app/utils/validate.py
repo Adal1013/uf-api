@@ -13,8 +13,9 @@ class Validate:
     def validate_date(uf_date: str) -> date:
         try:
             format_date = datetime.strptime(uf_date, "%Y-%m-%d").date()
-            if format_date < date(2023, 1, 1):
-                raise HTTPException(status_code=400, detail="The date must be greater than or equal to 2023-01-01.")
+            today = date.today()
+            if format_date.year != today.year:
+                raise HTTPException(status_code=400, detail="The year date must be equal to current year")
             return format_date
         except ValueError as e:
 

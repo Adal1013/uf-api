@@ -31,7 +31,6 @@ class SIIUFWebScraper:
         except (ValueError, IndexError) as e:
             raise HTTPException(status_code=500, detail=f"An error has occurred creating the data: {e}")
 
-
     def get_uf_data(self):
         soup = self.get_uf_soup()
         uf_export_table = soup.find('table', {'id': 'table_export'})

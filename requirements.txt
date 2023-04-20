@@ -3,3 +3,5 @@ uvicorn
 python-dotenv
 requests
 bs4
+pytest
+httpx
